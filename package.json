@@ -48,7 +48,11 @@
       "max-len": 0,
       "no-unused-vars": 0,
       "no-unused-expressions": 0,
-      "prefer-destructuring": 0
+      "prefer-destructuring": 0,
+      "no-alert": 0
+    },
+    "globals": {
+      "kakao": false
     }
   },
   "browserslist": [

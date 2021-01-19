@@ -9,9 +9,9 @@
           </template>
         </tr>
       </thead>
-      <tbody>
+      <tbody @mouseover="true">
         <template v-for="(list, key) in state.pageList" :key="key">
-          <tr>
+          <tr @click="onClickList(list)">
             <template v-for="(value, key) in list" :key="key">
               <td>{{ value }}</td>
             </template>
@@ -33,7 +33,7 @@ export default {
     headers: Object,
     items: Object,
   },
-  setup(props) {
+  setup(props, { emit }) {
     const state = reactive({
       headers: ref(props.headers),
       pageList: ref(props.items),
@@ -46,8 +46,19 @@ export default {
       },
     );
 
+    const onClickList = (mapInfo) => {
+      console.log('onClickList mapInfo : ', mapInfo);
+      if (!mapInfo.latitude || !mapInfo.longitude) {
+        window.alert('표시할 지도 데이터가 없습니다.');
+        return;
+      }
+
+      emit('viewMap', { mapInfo, isMapShow: true });
+    };
+
     return {
       state,
+      onClickList,
     };
   },
 };

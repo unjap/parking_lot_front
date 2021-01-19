@@ -1,7 +1,7 @@
 <template>
   <div class="btn-cover">
     <button @click="clickFirstPage">
-      맨 앞으로
+      맨 앞 페이지
     </button>
     <button @click="clickPrevPage">
       이전
@@ -11,7 +11,7 @@
       다음
     </button>
     <button @click="clickLastPage">
-      맨 뒤로
+      맨 뒤 페이지
     </button>
   </div>
 </template>
@@ -56,8 +56,18 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.btn-cover {
+  margin: 1.5rem 1.5rem;
+  text-align: center;
+  width: 90%;
+  .page-count {
+    color: #fff;
+    padding: 0 1rem;
+  }
+}
+
 button {
-  width: 5rem;
+  width: 7rem;
   height: 2rem;
   letter-spacing: 0.5px;
   border-radius: 2px;
@@ -67,14 +77,5 @@ button {
   color: #444;
   margin: 5px;
   background-color: #fff;
-}
-
-.btn-cover {
-  margin: 1.5rem 1.5rem;
-  text-align: center;
-  .page-count {
-    color: #fff;
-    padding: 0 1rem;
-  }
 }
 </style>
